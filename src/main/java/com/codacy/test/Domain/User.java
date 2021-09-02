@@ -20,4 +20,9 @@ public class User {
     public User(String username) {
         this.username = username;
     }
+
+    @Override
+    public String toString(){
+        return "{ id: " + this.id.toString() + ", username: " + this.username + " }";
+    }
 }

@@ -12,6 +12,11 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Application {
 
+//    @Bean
+//    public ModelMapper modelMapper() {
+//        return new ModelMapper();
+//    }
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
@@ -19,12 +24,14 @@ public class Application {
     @Bean
     public CommandLineRunner mappingDemo(TodoRepository todoRepo, UserRepository userRepo){
         return args -> {
-            User user = new User("virgil");
+            User user = new User("george");
             userRepo.save(user);
-            Todo todo1 = new Todo("cleaning",false,user);
-            Todo todo2 = new Todo("working", true, user);
+            Todo todo1 = new Todo("clean",false,user);
+            Todo todo2 = new Todo("walk", true, user);
+           // Long id_todo = 5;
             todoRepo.save(todo1);
             todoRepo.save(todo2);
+            todoRepo.save(new Todo(todo2.getId(), "test de update cu succes", true, todo2.getUser()));
         };
     }
 }
