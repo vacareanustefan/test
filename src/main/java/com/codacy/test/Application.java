@@ -33,20 +33,29 @@ public class Application {
 //            todoRepo.save(todo2);
 //            todoRepo.save(new Todo(todo2.getId(), "test de update cu succes", true, todo2.getUser()));
 
-            User user = new User("george");
+            User user = new User("andrew");
             userRepo.save(user);
-
-            TodoDTO todo1 = new TodoDTO("melc", true, user);
-            Long a = 2L;
-            TodoDTO todo2 = new TodoDTO(a, "merge service", false, user);
+            User user1 = new User("steve");
+            userRepo.save(user1);
+//
+            TodoDTO todo1 = new TodoDTO("working", false, user);
+            controller.create(todo1);
+            TodoDTO todo2 = new TodoDTO("watching tv", true, user);
+            controller.create(todo2);
+            TodoDTO todo3 = new TodoDTO("washing dishes", false, user1);
+            controller.create(todo3);
+            TodoDTO todo4 = new TodoDTO("playing football", true, user1);
+            controller.create(todo4);
+//            Long a = 2L;
+//            TodoDTO todo2 = new TodoDTO(a, "merge service", false, user);
 //            System.out.println(service.getById(2L));
 //            System.out.println("linie---------------");
 //            System.out.println(service.getAllTodos());
 //            System.out.println("linie2---------------");
 //            service.delete(2L);
 //            System.out.println(service.getAllTodos());
-            System.out.println(controller.create(todo1));
-            System.out.println(controller.update(todo2));
+//            System.out.println(controller.create(todo1));
+//            System.out.println(controller.update(todo2));
 //            System.out.println(controller.getById(2L));
 //            System.out.println(controller.getAllTodos());
         };
