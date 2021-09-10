@@ -1,7 +1,7 @@
 # Alpine Linux with OpenJDK JRE
 FROM openjdk:8-jre-alpine
 
-# Copy war file
+# Copy jar file
 ADD /target/test-0.0.1-SNAPSHOT.jar /test.jar
 
 # run the app

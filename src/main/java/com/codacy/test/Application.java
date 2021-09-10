@@ -37,7 +37,6 @@ public class Application {
             userRepo.save(user);
             User user1 = new User("steve");
             userRepo.save(user1);
-//
             TodoDTO todo1 = new TodoDTO("working", false, user);
             controller.create(todo1);
             TodoDTO todo2 = new TodoDTO("watching tv", true, user);
