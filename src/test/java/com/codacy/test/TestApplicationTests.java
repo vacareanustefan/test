@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
@@ -43,6 +45,17 @@ class TestApplicationTests {
 		Todo updateTodo = todoRepository.save(saveTodo);
 
 		assertEquals("I made an update", updateTodo.getTitle());
+	}
+
+	@Test
+	public void testFindById() {
+		User user = new User("Ben");
+		userRepository.save(user);
+		Todo todo = new Todo("test find by id", false, user);
+		Todo saveTodo = todoRepository.save(todo);
+		Optional<Todo> findTodo = todoRepository.findById(saveTodo.getId());
+
+		assertEquals(saveTodo.getTitle(),findTodo.get().getTitle());
 	}
 
 }
